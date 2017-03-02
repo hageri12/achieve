@@ -6,6 +6,7 @@ class BlogsController < ApplicationController
     @blogs = Blog.all
   end
   
+  
   def new
     if params[:back]
       @blog = Blog.new(blogs_params)
@@ -14,8 +15,10 @@ class BlogsController < ApplicationController
     end
   end
   
+  
   def create
     @blog = Blog.new(blogs_params)
+    @blog.user_id = current_user.id
     Blog.create(blogs_params)
     if @blog.save
       redirect_to blogs_path, notice: "ブログを作成しました！"
@@ -24,8 +27,10 @@ class BlogsController < ApplicationController
     end
   end
   
+  
   def edit
   end
+  
   
   def update
     @blog.update(blogs_params)
@@ -36,10 +41,12 @@ class BlogsController < ApplicationController
     end
   end
   
+  
   def destroy
     @blog.destroy
     redirect_to blogs_path, notice: "ブログを削除しました！"
   end
+  
   
   def confirm
     @blog = Blog.new(blogs_params)
