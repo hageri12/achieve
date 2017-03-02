@@ -3,7 +3,7 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @blogs = Blog.all
+    @blog = Blog.all
   end
   
   
@@ -19,7 +19,6 @@ class BlogsController < ApplicationController
   def create
     @blog = Blog.new(blogs_params)
     @blog.user_id = current_user.id
-    Blog.create(blogs_params)
     if @blog.save
       redirect_to blogs_path, notice: "ブログを作成しました！"
     else
