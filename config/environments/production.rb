@@ -79,10 +79,10 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'frozen-earth-96868.herokuapp.com' }
   ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.smtp_settings =
+  ActionMailer::Base.smtp_settings=
   {
     user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SNDGRID_USERNAME'],
+    password: ENV['SNDGRID_PASSWORD'],
     domain: "heroku.com",
     adress: "smtp.sendgrid.net",
     port: 587,
