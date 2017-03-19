@@ -69,3 +69,5 @@ group :development, :test do
 end
 
 gem 'activeresource'
+
+gem 'her'
