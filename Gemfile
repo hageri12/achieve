@@ -65,9 +65,18 @@ gem 'cancan'
 
 group :development, :test do
   gem 'pry-rails'
+  gem 'pry-byebug'
   gem 'better_errors'
+  gem 'dotenv-rails'
 end
 
 gem 'activeresource'
 
 gem 'her'
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+
+gem 'carrierwave'
+gem 'rmagick'
