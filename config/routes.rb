@@ -2,10 +2,10 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   #devise_for :users
-  resources :blogs, only: [:index, :new, :create, :edit, :update, :destroy] do
-   collection do
-      post :confirm
-    end
+
+  resources :blogs do
+    resources :comments
+    post :confirm, on: :collection
   end
 
   resources :contacts, only: [:new, :create] do
@@ -26,5 +26,6 @@ Rails.application.routes.draw do
     registrations:"users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
+
 
 end
