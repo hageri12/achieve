@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
   PERMISSIBLE_ATTRIBUTES = %i(name avatar avatar_cache)
 
   before_action :current_notifications,if: :signed_in?
-
   def current_notifications
     @notifications_count = Notification.where(user_id: current_user.id).where(read: false).count
   end
